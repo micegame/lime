@@ -924,10 +924,12 @@ class HTML5Window
 		textArea.value = value;
 		textArea.focus();
 		textArea.select();
-
 		if (Browser.document.queryCommandEnabled("copy"))
 		{
 			Browser.document.execCommand("copy");
+			Timer.delay(function () {textInput.focus();}, 1);
+		} else {
+			textInput.focus();
 		}
 	}
 
