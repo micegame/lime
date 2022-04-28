@@ -927,10 +927,11 @@ class HTML5Window
 		if (Browser.document.queryCommandEnabled("copy"))
 		{
 			Browser.document.execCommand("copy");
-			Timer.delay(function () {textInput.focus();}, 1);
-		} else {
-			textInput.focus();
 		}
+		Timer.delay(function()
+		{
+			if (textInputEnabled) textInput.focus();
+		}, 20);
 	}
 
 	public function setCursor(value:MouseCursor):MouseCursor
